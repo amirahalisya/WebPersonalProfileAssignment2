@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Profile Form</title>
+    <style>
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #08080b, #101e14, #2e0633);
+            background-size: 300% 300%;
+            animation: gradientShift 15s ease infinite;
+            color: #f0f0f0;
+            padding: 40px;
+            overflow-x: hidden;  
+            overflow-y: auto;    
+            position: relative;
+        }
+
+       
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(255,255,255,0.15) 1px, transparent 1px);
+            background-size: 80px 80px;
+            animation: sparkleMove 40s linear infinite;
+            z-index: 0;
+            opacity: 0.2;
+        }
+        @keyframes sparkleMove {
+            from { background-position: 0 0; }
+            to { background-position: 1000px 1000px; }
+        }
+
+        form {
+            position: relative;
+            z-index: 1;
+            background: rgba(20, 20, 25, 0.9);
+            width: 420px;
+            margin: auto;
+            padding: 35px;
+            border-radius: 20px;
+            border: 1px solid #38ffb3;
+            box-shadow: 0 0 40px rgba(56,255,179,0.25), 0 0 70px rgba(228,109,255,0.2);
+            animation: pulseGlow 4s ease-in-out infinite;
+        }
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 25px rgba(56,255,179,0.25), 0 0 60px rgba(228,109,255,0.15); }
+            50% { box-shadow: 0 0 40px rgba(56,255,179,0.45), 0 0 90px rgba(228,109,255,0.35); }
+        }
+
+        h2 {
+            text-align: center;
+            color: #e46dff;
+            font-weight: 600;
+            border-bottom: 2px solid #38ffb3;
+            padding-bottom: 10px;
+            text-shadow: 0 0 15px rgba(228,109,255,0.7);
+            letter-spacing: 2px;
+        }
+        label {
+            font-weight: 600;
+            color: #aefac3;
+            margin-top: 10px;
+            display: block;
+        }
+        input, textarea {
+            width: 100%;
+            padding: 10px;
+            margin-top: 6px;
+            margin-bottom: 14px;
+            border: 1px solid #38ffb3;
+            border-radius: 10px;
+            background-color: #0a0d0b;
+            color: #f0f0f0;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+        }
+        input::placeholder, textarea::placeholder {
+            color: #7ab18a;
+        }
+        button {
+            background: linear-gradient(135deg, #2df18c, #e46dff);
+            color: #0a0d0b;
+            border: none;
+            padding: 12px;
+            width: 100%;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.4s ease;
+            box-shadow: 0 0 30px rgba(45,241,140,0.3);
+        }
+        button:hover {
+            background: linear-gradient(135deg, #e46dff, #2df18c);
+            box-shadow: 0 0 50px rgba(228,109,255,0.6);
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <form action="ProfileServlet" method="post">
+        <h2>My Profile Form</h2>
+
+        <label>Name:</label>
+        <input type="text" name="name" required placeholder="Elphaba Glinda">
+
+        <label>Student ID:</label>
+        <input type="text" name="studentId" required placeholder="e.g. 20256666">
+
+        <label>Program:</label>
+        <input type="text" name="program" required placeholder="Degree in Accounting">
+
+        <label>Email:</label>
+        <input type="email" name="email" required placeholder="you@example.com">
+
+        <label>Hobbies:</label>
+        <input type="text" name="hobbies" placeholder="e.g. Singing">
+
+        <label>Short Introduction:</label>
+        <textarea name="intro" rows="4" placeholder="Something  about you..."></textarea>
+
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>
